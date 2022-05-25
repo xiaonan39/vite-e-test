@@ -7,3 +7,5 @@
   4.echars
   5.灵活权限配置
  -->
+# vite-e-test
+练手vite+vue项目
