@@ -50,11 +50,11 @@ const routes = [
     },
     children: [
       {
-        path: 'userList',
-        component: () => import('../views/setting/userList'),
+        path: 'AIEngine',
+        component: () => import('../views/setting/AIEngine'),
         meta: {
           isMenuElement: true,
-          title: '用户列表'
+          title: 'AI引擎列表'
         },
       },
       {

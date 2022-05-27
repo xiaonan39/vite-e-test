@@ -1,7 +1,7 @@
 <template>
   <div class="nav-header">
     <div class="nav-left" >
-      <img src="@/assets/image/login_logo.svg" @click="$router.push('/')">
+      <img src="@/assets/image/xiyang.jpg" @click="$router.push('/')">
     </div>
     <div class="nav-right"></div>
   </div>
@@ -24,7 +24,7 @@
     width: 230px;
     img {
       width: 100%;
-      height: 100%;
+      // height: 100%;
       cursor: pointer;
     }
   }

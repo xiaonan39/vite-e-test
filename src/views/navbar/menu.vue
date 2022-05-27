@@ -36,7 +36,7 @@ const menuList = reactive([
     menuName: '设置',
     path: '/setting',
     children: [
-      { menuName: '用户列表', url: '/setting/userList', name: 'user' },
+      { menuName: 'AI引擎列表', url: '/setting/AIEngine', name: 'AIEngine' },
       { menuName: '角色分配', url: '/setting/roleList', name: 'role' }
     ]
   }

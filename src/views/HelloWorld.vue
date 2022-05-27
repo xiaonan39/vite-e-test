@@ -8,7 +8,7 @@
         </li>
       </ul>
     </div>
-    <img src="@/assets/image/微信图片_202204181605354.jpg"/>
+    <img src="@/assets/image/xiyang.jpg"/>
     <p class="font-size-s">s字号</p>
     <p class="font-size-xl">xl字号</p>
   </div>

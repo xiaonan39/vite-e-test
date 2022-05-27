@@ -121,7 +121,6 @@ const resetSubmit = () => {
 
 <style lang="scss" scoped>
 @import "~style/basic.scss";
-@import "~style/common.scss";
 .search-module {
   display: flex;
   height: 90px;

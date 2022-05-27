@@ -1,20 +1,7 @@
-html, body, div, ul, li, dl, dt, dd, button, table, tbody, thead, tfoot, tr, td, th,
-input, textarea, nav, header, footer, menu, section, aside, article, details, form, h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-
-  &::after {
-    box-sizing: border-box;
-  }
-
-  &::before {
-    box-sizing: border-box;
-  }
-}
-
 
 html, body {
+  margin: 0;
+  padding: 0;
   height: 100vh;
   // background: hsla(0,0%,100%,.5);
   background: #d4d4d4;
@@ -40,3 +27,82 @@ html, body {
   display: block;
   padding: 1.25rem;
 }
+
+
+@import './scss.scss';
+// 弹窗title
+.title {
+  width: 100px;
+  height: 20px;
+  line-height: 20px;
+  // background: green;
+  position: absolute;
+  top: 30px;
+  display: flex;
+  flex-direction: row;
+}
+.title-divider {
+  display: block;
+  width: 4px;
+  height: 20px;
+  background: #77B0FD;
+}
+.title-texts {
+  // padding-left: 8px;
+  font-size: 16px;
+  color: #333333;
+}
+.title-block{
+  display: inline-block;
+  width: 4px;
+  height: 18PX;
+  background: #77B0FD;
+  margin-right: 4px;
+}
+
+.popup {
+  :deep(.el-dialog) {
+    width: 38em;
+    padding: 10px 30px;
+    top: 20%;
+    border-radius: 5px;
+    .el-dialog__header {
+      .title {
+        width: unset;
+        .title-texts {
+          font-weight: 600;
+        }
+      }
+    }
+    .el-dialog__body{
+      padding-top: 40px;
+      padding-bottom: 10px;
+    }
+    .el-dialog__footer {
+      .btn-confirm {
+        margin-right: 18px;
+      }
+      text-align: center;
+    }
+  }
+}
+
+// table上方的操作按钮
+.main-top-btn {
+  margin: 15px 10px;
+  color: #ffffff;
+  .is-disabled {
+    background-color: var(--el-button-disabled-bg-color);
+  }
+  .el-button+.el-button {
+    margin-left: 20px;
+  }
+}
+
+/* $headerHeight: 60px;
+$headerBg: #F9F9F9;
+
+:export {
+  headerHeight: $headerHeight;
+  headerBg: $headerBg;
+} */

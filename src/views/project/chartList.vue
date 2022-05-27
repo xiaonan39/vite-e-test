@@ -1,20 +1,20 @@
 <template>
   <div class="chart-list">
     图表
-    {{ useName }}
+    <!-- {{ useName }} -->
   </div>
 </template>
 
 <script setup>
-import { useName } from '../../utils/name.js'
+// import { useName } from '../../utils/name.js'
 import { onMounted } from 'vue'
 
-onMounted(() => {
+/* onMounted(() => {
   setTimeout(() => {
-    console.log(useName('啦啦啦啦啦'))
+    // console.log(useName('啦啦啦啦啦'))
     // userName.setName()
   }, 3000);
-})
+}) */
 
 </script>
 

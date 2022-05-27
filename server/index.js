@@ -7,6 +7,7 @@ const controller = new Controller();
 server.on("request", async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Headers", "*");
+  console.log(req)
   if (req.method === "OPTIONS") {
     res.status = 200;
     res.end();
@@ -22,7 +23,8 @@ server.on("request", async (req, res) => {
     return;
   }
 
-  if (req.url === "/") {
+  if (req.url === "/init") {
+    console.log(req)
     await controller.handleFormData(req, res);
   }
 
@@ -31,4 +33,4 @@ server.on("request", async (req, res) => {
   }
 });
 
-server.listen(3000, () => console.log("listening port 3000"));
+server.listen(8800, () => console.log("listening port 8888"));

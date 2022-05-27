@@ -25,13 +25,15 @@
         uploadTitle="上传图像"
       />
     </div>
+
+    {{}}
   </div>
 </template>
 
 <script setup>
 import { computed, ref, onMounted, reactive } from 'vue'
 import uploadImage from '@/components/uploadImage/index.vue'
-
+import API from 'API'
 
 let data = reactive([])
 const chunkSize = 10 * 1024 * 1024; // 切片大小
@@ -125,6 +127,18 @@ const showUploadImage = () => {
   uploadImageRef.value.show()
 }
 
+const fetchInit = () => {
+  API.uploadImage.init({ id: '1111' })
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+onMounted(() => {
+  fetchInit()
+})
 
 </script>
 

@@ -45,11 +45,41 @@ export default defineConfig({
     proxy: {
       '/mock': {
         // target: 'http://172.31.2.58:8200/',
-        target: 'http://172.31.2.56:8200/', // 测试联调
+        target: 'http://localhost:8800/', // 测试联调
         changeOrigin: true,
         secure: false,
         rewrite: path => path.replace('/mock/', '/')
       }
     }
   },
+  build: {
+    minify: 'esbuild',
+    brotliSize: false,
+    // 是否css文件分割
+    sourcemap: false,
+    // 消除打包大小超过500kb警告
+    chunkSizeWarningLimit: 2000,
+    // 在生产环境移除console.log
+    /* terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
+    assetsDir: 'assets', */
+    // 静态资源打包到dist下的不同目录
+    rollupOptions: {
+      target: 'esnext',
+      output: {
+        chunkFileNames: 'static/js/[name]-[hash].js',
+        entryFileNames: 'static/js/[name]-[hash].js',
+        assetFileNames: function (assetInfo) {
+          return 'static/[ext]/[name]-[hash].[ext]'
+        },
+        manualChunks: {
+          element: ['element-plus']
+        }
+      }
+    }
+  }
 })

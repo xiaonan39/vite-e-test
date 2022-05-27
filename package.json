@@ -2,9 +2,13 @@
   "name": "vite-project",
   "private": true,
   "version": "0.0.0",
+  "notes": {
+    "& nodemon server/index.js": "原本是dev指令里边的"
+  },
   "scripts": {
-    "dev": "vite --mode mock & nodemon server/index.js",
+    "dev": "vite --mode mock",
     "test": "vite --mode test",
+    "node": "vite --mode mock & nodemon server/index.js",
     "production": "vite --mode production",
     "build:test": "vite build --mode test",
     "build:prod": "vite build --mode production",

@@ -1,3 +1,12 @@
 {
-  "recommendations": ["johnsoncodehk.volar"]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "numso.prettier-standard-vscode",
+    "johnsoncodehk.volar",
+    "christian-kohler.path-intellisense",
+    "xabikos.javascriptsnippets",
+    "ecmel.vscode-html-css",
+    "coenraads.bracket-pair-colorizer",
+    "standard.vscode-standard"
+  ]
 }
