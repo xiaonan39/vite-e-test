@@ -9,6 +9,7 @@ import 'element-plus/dist/index.css'
 import '@/assets/style/basic.scss'
 
 // createApp(App).use(router).use(ElementPlus, { locale, size: 'default' }).mount('#app')
+import {createPinia} from 'pinia'
 
 const app = createApp(App)
 
@@ -17,4 +18,5 @@ app.use(ElementPlus, { locale, size: 'default' })
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
+app.use(createPinia())
 app.mount('#app')

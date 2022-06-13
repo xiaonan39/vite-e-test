@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-const routes = [
+export const routes = [
   {
     path: '/',
     component: () => import('../views/HelloWorld.vue'),
@@ -18,23 +18,28 @@ const routes = [
     // redirect: '/home',
     meta: {
       noRequireAuth: true,
-      title: '项目'
+      title: '项目',
+      noCache: false
     },
     children: [
       {
         path: 'imageList',
         component: () => import('../views/project/imageList'),
+        name: 'imageList',
         meta: {
           isMenuElement: true,
-          title: '图像列表'
+          title: '图像列表',
+          noCache: false
         },
       },
       {
         path: 'chartList',
         component: () => import('../views/project/chartList'),
+        name: 'chartList',
         meta: {
           isMenuElement: true,
-          title: '图表列表'
+          title: '图表列表',
+          noCache: false
         },
       }
     ]
@@ -46,26 +51,40 @@ const routes = [
     name: 'setting',
     meta: {
       noRequireAuth: true,
-      title: '设置'
+      title: '设置',
+      noCache: false
     },
     children: [
       {
         path: 'AIEngine',
         component: () => import('../views/setting/AIEngine'),
+        name: 'AIEngine',
         meta: {
           isMenuElement: true,
-          title: 'AI引擎列表'
+          title: 'AI引擎列表',
+          noCache: false
         },
       },
       {
         path: 'roleList',
         component: () => import('../views/setting/roleList'),
+        name: 'roleList',
         meta: {
           isMenuElement: true,
-          title: '角色列表'
+          title: '角色列表',
+          noCache: true
         },
       }
     ]
+  },
+  {
+    path: '/viewer',
+    name: 'viewer',
+    component: () => import('../views/viewer/index'),
+    meta: {
+      noCache: false,
+      title: '标注页面'
+    }
   },
   {
     path: '/404', // /:pathMatch(.*)'

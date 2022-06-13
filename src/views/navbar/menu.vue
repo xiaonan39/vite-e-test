@@ -49,14 +49,16 @@ const menuList = reactive([
 <style scoped lang="scss">
 .navbar-menu {
   height: 100%;
-  background: var(--theme-white);
+  background: var(--theme-light-grey);
+  box-shadow: 0 2px 3px rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 10%);
   /* display: flex;
   flex-direction: column;
   justify-content: space-between; */
-  padding-bottom: 80px;
+  // padding-bottom: 80px;
   :deep(.el-menu) {
     border-right: 0px;
     width: 230px;
+    background: var(--theme-light-grey);
   }
 }
 

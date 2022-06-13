@@ -7,14 +7,20 @@
 
 <script setup>
 // import { useName } from '../../utils/name.js'
-import { onMounted } from 'vue'
+import { onMounted, getCurrentInstance, ref } from 'vue'
+const chart = ref('图表页面')
 
-/* onMounted(() => {
-  setTimeout(() => {
-    // console.log(useName('啦啦啦啦啦'))
-    // userName.setName()
-  }, 3000);
-}) */
+const { proxy } = getCurrentInstance()
+
+console.log(proxy)
+
+const handle = () => {
+  return '我是一个函数'
+}
+
+onMounted(() => {
+  handle()
+})
 
 </script>
 

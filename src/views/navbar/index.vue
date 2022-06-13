@@ -3,11 +3,16 @@
     <nav-header />
     <div class="body-bottom">
       <sidebar />
-      <el-main>
-        <!-- <div class="box" >
-          <breadcrumb />
-        </div> -->
-        <router-view />
+      <el-main clas="box">
+        <tags-view />
+        <!-- <router-view /> -->
+        <router-view v-slot="{ Component, route }">
+          <transition name="fade-transform" mode="out-in">
+            <keep-alive :include="cachedViews">
+              <component :is="Component" :key="route.path"/>
+            </keep-alive>
+          </transition>
+        </router-view>
       </el-main>
     </div>
   </div>
@@ -18,6 +23,18 @@
 import navHeader from './header.vue'
 import sidebar from './menu.vue'
 import breadcrumb from '@/components/breadcrumb/breadcrumb.vue'
+import tagsView from '../../components/tagsView'
+import useTagsViewStore from '@/store/module/tagsView'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const tagsViewStore = useTagsViewStore()
+tagsViewStore.addCachedView(route)
+const cachedViews = computed(() => {
+  return useTagsViewStore.cachedViews
+})
+// console.log(cachedViews)
 
 
 
@@ -32,10 +49,14 @@ import breadcrumb from '@/components/breadcrumb/breadcrumb.vue'
     display: flex;
     // flex: 1;
     :deep(.el-main) {
-      height: calc(100vh - 100px);
-      margin: 20px;
+      height: calc(100vh - 60px);
+      // margin: 20px;
       background: var(--theme-white);
       border-radius: 5px;
+      padding: unset;
+      >div:nth-child(2) {
+        height: calc(100vh - 100px);
+      }
     }
   }
 }

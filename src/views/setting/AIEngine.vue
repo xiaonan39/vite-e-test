@@ -1,5 +1,5 @@
 <template>
-  <div class="AI-engine">
+  <div class="AI-engine box">
     <search-dialog
       :searchForm="searchForm"
       title=""
@@ -168,8 +168,8 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import "~style/basic.scss";
-.AI-engines {
-
+.AI-engine {
+  height: 100%;
 }
 
 </style>
