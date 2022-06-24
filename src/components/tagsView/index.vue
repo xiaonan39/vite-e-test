@@ -1,9 +1,13 @@
 <template>
-  <div class="tags-view">
+  <div class="tags-view tags-view-wrapper">
     <router-link
       v-for="tag in visitedViews"
       :key="tag.path"
+      :data-path="tag.path"
       :to="{path: tag.path, query: tag.query, fullPath: tag.fullPath}"
+      :class="isActive(tag) ? 'active' : ''"
+      class="tags-view-item"
+      :style="activeStyle(tag)"
     >
       {{ tag.title }}
     </router-link>
@@ -86,6 +90,18 @@ const filterAffixTags = (routes, basePath = '') => {
   return tags
 }
 
+const isActive = (r) => {
+  return r.path === route.path
+}
+const activeStyle = (tag) => {
+  if (!isActive(tag)) return {}
+  // 颜色到时可以修改为主题
+  return {
+    "background-color": '#409EFF',
+    "border-color": '#409EFF'
+  }
+}
+
 
 
 console.log(visitedViews)
@@ -99,5 +115,49 @@ console.log(visitedViews)
   height: 40px;
   box-shadow: 0 2px 3px rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 10%);;
   line-height: 40px;
+  a {
+    text-decoration: none;
+  }
+  
+  .router-link-active {
+    text-decoration: none;
+  }
+}
+.tags-view-wrapper {
+  .tags-view-item {
+    display: inline-block;
+      position: relative;
+      cursor: pointer;
+      height: 26px;
+      line-height: 26px;
+      border: 1px solid #d8dce5;
+      color: #495060;
+      background: #fff;
+      padding: 0 8px;
+      font-size: 12px;
+      margin-left: 5px;
+      margin-top: 4px;
+      &:first-of-type {
+        margin-left: 15px;
+      }
+      &:last-of-type {
+        margin-right: 15px;
+      }
+      &.active {
+        background-color: #42b983;
+        color: #fff;
+        border-color: #42b983;
+        &::before {
+          content: "";
+          background: #fff;
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          position: relative;
+          margin-right: 2px;
+        }
+      }
+  }
 }
 </style>
